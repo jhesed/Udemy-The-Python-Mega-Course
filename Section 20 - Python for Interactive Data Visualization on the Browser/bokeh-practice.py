@@ -78,6 +78,18 @@ if __name__ == '__main__':
     p.yaxis.axis_label = "Pressure (hPa)"                  
 
     p.circle(df["Temperature"],df["Pressure"], size=0.5)
-    output_file("Weather.html")
-    show(p)
+    output_file("Weather.html", mode='cdn')
+    # The JS and CSS will be fetched from CDN by default
+    # output_file("Weather.html", mode='inline')
+    # output_file("Weather.html", mode='relative')
+    # show(p)
 
+
+    # ----- (4) Time Date Plot -----
+
+    df = pandas.read_csv('http://ichart.yahoo.com/table.csv?s=AAPL&a=0&b=1&c=2000&d=0&e=1&f=2010', 
+        parse_dates=["Date"])
+    p = figure(width=500, height=250, x_axis_type='datetime', responsive=True)
+    p.line(df['Date'], df['Close'], color='Orange', alpha=0.5)
+    output_file('Timeseries.html')
+    show(p)
