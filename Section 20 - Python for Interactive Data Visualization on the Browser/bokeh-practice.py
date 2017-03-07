@@ -54,7 +54,8 @@ if __name__ == '__main__':
     p.xaxis.axis_label = 'Times'
     p.yaxis.axis_label = 'Value'
 
-    # p.circle(df['X'], df['Y'], size=10, color='red', alpha=0.5)
+    # quad may also be used
+    p.circle([4, 8, 12], [7, 14, 21], size=17, color='orange', alpha=0.5)
     # p.triangle(df['X'], df['Y'], size=10, color='red', alpha=0.5)
     p.triangle(df['X'], df['Y'], size=[5, 10, 15, 20, 25], color='red', alpha=0.5)
     output_file('Scatter_plotting.html')
